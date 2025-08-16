@@ -3,7 +3,7 @@ const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 350,  // tamaño inicial (puedes cambiar)
+    width: 350,
     height: 450,
     resizable: false,
     frame: false,
@@ -20,7 +20,6 @@ function createWindow() {
 
   win.loadFile('index.html');
 
-  // Ajustar tamaño al contenido después de cargar la ventana
   win.webContents.on('did-finish-load', () => {
     win.webContents.executeJavaScript(`
       new Promise((resolve) => {
@@ -37,19 +36,17 @@ function createWindow() {
         resolve({width, height});
       });
     `).then(({width, height}) => {
-      // Añade un poco de margen para evitar cortes (por ejemplo 20px)
       win.setContentSize(width + 20, height + 20);
     });
   });
 }
 
-// Manejador para cerrar ventana desde renderer
+// Manejadores de los botones
 ipcMain.on('cerrar-ventana', (event) => {
   const win = BrowserWindow.fromWebContents(event.sender);
   if (win) win.close();
 });
 
-// Manejo de minimizar ventana
 ipcMain.on('minimizar-ventana', (event) => {
   const win = BrowserWindow.fromWebContents(event.sender);
   if (win) win.minimize();
@@ -59,4 +56,8 @@ app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });

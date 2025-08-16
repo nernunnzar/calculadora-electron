@@ -1,15 +1,29 @@
 {
   "name": "calculadora",
   "version": "1.0.0",
-  "description": "",
+  "description": "Calculadora básica de escritorio",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^37.2.6"
+    "electron": "^37.2.6",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.nernunnzar.calculadora",
+    "productName": "Calculadora Mini",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
   }
 }
