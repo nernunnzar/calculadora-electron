@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora Básica</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="title-bar">
+      <div class="drag-region">Calculadora</div>
+      <button id="minimizeBtn" title="Minimizar">-</button>
+      <button id="closeBtn" title="Cerrar">×</button>
+    </div>
+
+    <div class="calculator">
+      <div class="top-bar">
+        <input type="text" class="screen" id="screen" disabled />
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      </div>
+
+      <div class="buttons">
+        <button class="span-3 btn-clear" onclick="clearScreen()">C</button>
+        <button onclick="appendValue('/')">/</button>
+
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button onclick="appendValue('*')">*</button>
+
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button onclick="appendValue('-')">-</button>
+
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button onclick="appendValue('+')">+</button>
+
+        <button onclick="appendValue('0')">0</button>
+        <button onclick="appendValue('.')">.</button>
+        <button onclick="deleteLast()">⌫</button>
+        <button class="equal" onclick="calculate()">=</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@11.8.0/lib/browser/math.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
