@@ -51,9 +51,3 @@ Una aplicación de escritorio simple de **calculadora** desarrollada con
 
 ¡Las contribuciones son bienvenidas! Haz un fork, crea una rama, realiza
 tus cambios y abre un Pull Request.
-
-------------------------------------------------------------------------
-
-## 📄 Licencia
-
-Este proyecto está disponible bajo la licencia MIT.
